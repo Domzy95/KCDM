@@ -1,4 +1,3 @@
-// src/components/SubHeader.js
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import frame from "@/assets/images/frame.svg";
@@ -190,15 +189,24 @@ export default function SubHeader() {
           <>
             {/* Desktop Layout */}
             <div className="hidden md:block relative">
-              {/* Green header section with extended height to accommodate image */}
-              <div className="w-full bg-[#4BAC87]">
-                <div className="h-[350px] relative">
+              {/* Frame Pattern - This creates a container with the exact height we want */}
+              <div
+                className="w-[20%] h-[60px] relative"
+                style={{ marginBottom: "-30px" }}
+              >
+                <div className="w-full h-[60px] absolute top-5 left-[-20px]">
                   <img
-                    className="absolute top-[-5px] left-[-20px] w-[150px] h-auto sm:w-[223px] sm:h-[206px]"
                     src={frame}
                     alt=""
+                    className="h-[206px] w-[223px] object-cover"
+                    style={{ objectPosition: "left top" }}
                   />
+                </div>
+              </div>
 
+              {/* Green header section with extended height to accommodate image */}
+              <div className="w-full bg-[#4BAC87] pt-[40px]">
+                <div className="h-[350px] relative">
                   {/* Naslov Aktualno with more bottom margin */}
                   <div className="w-full flex justify-center pt-6">
                     <h1
@@ -233,7 +241,7 @@ export default function SubHeader() {
                         onClick={() => setActiveTab(item.id)}
                         className={`text-sm font-verb2 hover:text-[#318565] block p-2 ${
                           index > 0
-                            ? "border-t-[1px] w-[20%] border-opacity-50 self-start"
+                            ? "border-t-[1px] w-[15%] border-opacity-50 self-start"
                             : ""
                         } ${
                           activeTab === item.id
@@ -266,7 +274,7 @@ export default function SubHeader() {
               </div>
 
               {/* Spacer to ensure content below doesn't overlap with image */}
-              <div className="h-[220px]"></div>
+              <div className="h-[120px]"></div>
             </div>
           </>
         )}
